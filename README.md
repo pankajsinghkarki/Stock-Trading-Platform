@@ -1,36 +1,39 @@
-# Stock Trading Platform
+# 📈 Stock Trading Platform
 
-A full-stack stock trading platform inspired by Zerodha. The project includes a public landing website, an authenticated trading dashboard, and an Express/MongoDB backend for auth, holdings, positions, and orders.
+A full-stack stock trading platform inspired by Zerodha, built using the MERN stack.
 
-## Project Structure
+## 🚀 Live Demo
 
-```text
-.
-├── backend/     # Express API, MongoDB models, auth, orders, holdings
-├── dashboard/   # Protected React dashboard for trading workflow
-├── frontend/    # Public React landing website
-└── README.md
-```
+### Frontend
 
-## Features
+🔗 https://stock-trading-frontend-inky.vercel.app
 
-- User signup and login with JWT authentication
-- Protected dashboard routes using bearer tokens
-- Holdings, positions, and orders APIs
-- Create, read, update, and delete order endpoints
-- Public landing pages for home, products, pricing, about, signup, and support
-- Deployment-ready environment variable setup
-- Backend unit tests with Jest
+### Dashboard
 
-## Tech Stack
+🔗 https://stock-trading-platform-psi.vercel.app
 
-- Frontend: React, React Router, Bootstrap/CSS
-- Dashboard: React, Material UI, Chart.js, Axios
-- Backend: Node.js, Express, MongoDB, Mongoose
-- Auth: JWT, bcryptjs
-- Testing: Jest
+### Backend API
 
+🔗 https://stock-trading-platform-ykat.onrender.com
 
-## License
+## 🛠️ Tech Stack
 
-This project is for learning and portfolio use.
+* React.js
+* Node.js
+* Express.js
+* MongoDB
+* Material UI
+* Chart.js
+* Vercel
+* Render
+
+## ✨ Features
+
+* User Authentication
+* Dashboard
+* Holdings
+* Orders
+* Positions
+* Watchlist
+* Buy & Sell Stocks
+* Responsive Design
