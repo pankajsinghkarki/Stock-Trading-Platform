@@ -20,8 +20,6 @@ const isProduction = process.env.NODE_ENV === "production";
 const JWT_SECRET =
   process.env.JWT_SECRET || (isProduction ? null : "zerodha_clone_dev_secret");
 const defaultAllowedOrigins = [
-  "http://localhost:3000",
-  "http://localhost:3001",
   "https://stock-trading-platform-psi.vercel.app",
   "https://stock-trading-frontend-azerjoy5l-pankajsinghkarkis-projects.vercel.app",
 ];
