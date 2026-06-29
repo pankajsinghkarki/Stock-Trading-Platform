@@ -70,6 +70,24 @@ const seedCollection = async (Model, data) => {
   return Model.insertMany(data);
 };
 
+const seedCollectionIfEmpty = async (Model, data) => {
+  const count = await Model.countDocuments();
+
+  if (count > 0) {
+    return null;
+  }
+
+  return Model.insertMany(data);
+};
+
+const seedStarterDataIfEmpty = async () => {
+  await Promise.all([
+    seedCollectionIfEmpty(HoldingsModel, holdings),
+    seedCollectionIfEmpty(PositionsModel, positions),
+    seedCollectionIfEmpty(OrdersModel, orders),
+  ]);
+};
+
 const seedMiddleware = (req, res, next) => {
   if (isProduction) {
     return sendResponse(res, 403, "Seed routes are disabled in production.");
@@ -354,6 +372,7 @@ async function startServer() {
 
     await mongoose.connect(MONGO_URL);
     console.log("DB connected!");
+    await seedStarterDataIfEmpty();
 
     app.listen(PORT, () => {
       console.log(`App started on port ${PORT}!`);
