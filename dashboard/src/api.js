@@ -1,7 +1,9 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: process.env.REACT_APP_API_URL || "http://localhost:3002",
+  baseURL:
+    process.env.REACT_APP_API_URL ||
+    "https://stock-trading-platform-ykat.onrender.com",
 });
 
 API.interceptors.request.use((config) => {

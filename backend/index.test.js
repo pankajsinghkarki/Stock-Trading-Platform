@@ -54,7 +54,10 @@ describe("backend helpers", () => {
   describe("createToken", () => {
     it("creates a JWT containing the user id", () => {
       const token = createToken("user-123");
-      const decoded = jwt.verify(token, "zerodha_clone_dev_secret");
+      const decoded = jwt.verify(
+        token,
+        process.env.JWT_SECRET || "zerodha_clone_dev_secret"
+      );
 
       expect(decoded.userId).toBe("user-123");
       expect(decoded.exp).toBeGreaterThan(decoded.iat);

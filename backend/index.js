@@ -19,15 +19,28 @@ const MONGO_URL = process.env.MONGO_URL;
 const isProduction = process.env.NODE_ENV === "production";
 const JWT_SECRET =
   process.env.JWT_SECRET || (isProduction ? null : "zerodha_clone_dev_secret");
-const allowedOrigins = (process.env.CLIENT_URL || "")
+const defaultAllowedOrigins = [
+  "http://localhost:3000",
+  "http://localhost:3001",
+  "https://stock-trading-platform-psi.vercel.app",
+  "https://stock-trading-frontend-azerjoy5l-pankajsinghkarkis-projects.vercel.app",
+];
+const allowedOrigins = (process.env.CLIENT_URL || defaultAllowedOrigins.join(","))
   .split(",")
   .map((origin) => origin.trim())
   .filter(Boolean);
+const allowedOriginPatterns = [/^https:\/\/stock-trading.*\.vercel\.app$/];
 
 app.use(
   cors({
     origin(origin, callback) {
-      if (!origin || allowedOrigins.length === 0 || allowedOrigins.includes(origin)) {
+      const isAllowedOrigin =
+        !origin ||
+        allowedOrigins.length === 0 ||
+        allowedOrigins.includes(origin) ||
+        allowedOriginPatterns.some((pattern) => pattern.test(origin));
+
+      if (isAllowedOrigin) {
         return callback(null, true);
       }
 

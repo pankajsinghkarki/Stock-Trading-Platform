@@ -218,4 +218,10 @@
     background: #9b9b9b;
     color: #fff;
   }
+
+  .buy-window-error {
+    margin: 8px 20px 0;
+    color: #b42318;
+    font-size: 0.8rem;
+  }
   

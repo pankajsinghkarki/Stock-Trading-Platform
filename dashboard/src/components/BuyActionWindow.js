@@ -67,8 +67,6 @@ const BuyActionWindow = ({ uid }) => {
         </div>
       </div>
 
-      {error && <p className="loss">{error}</p>}
-
       <div className="buttons">
         <span>Margin required ₹140.65</span>
         <div>
@@ -80,6 +78,7 @@ const BuyActionWindow = ({ uid }) => {
           </Link>
         </div>
       </div>
+      {error && <p className="buy-window-error">{error}</p>}
     </div>
   );
 };
